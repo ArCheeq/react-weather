@@ -1,0 +1,32 @@
+@import '../../styles/variables.scss';
+
+.forecast {
+    margin-top: 7px;
+
+    background: var(#{--components-background-default});
+    border-radius: 0 0 20px 20px;
+
+    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+
+    transition: background .3s ease-in-out;
+    
+    &__items {
+        padding: 20px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__nav {
+        display: flex;
+        justify-content: space-between;
+
+        margin-bottom: 7px;
+
+        &__left {
+            display: flex;
+            gap: 15px;
+        }
+    }
+}

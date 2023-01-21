@@ -1,0 +1,11 @@
+.tabs {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 50px;
+
+    &__wrapper {
+        display: flex;
+        gap: 15px;
+    }
+}

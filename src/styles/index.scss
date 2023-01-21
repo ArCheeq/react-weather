@@ -1,0 +1,35 @@
+@import './variables.scss';
+@import '~normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(#{--body-background-default});
+
+    transition: background .3s ease-in-out;
+}
+
+.button {
+    font-size: 18px;
+    padding: 7px 20px;
+
+    border: none;
+    border-radius: 5px;
+
+    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+    background: var(#{--components-background-default});
+    color: var(#{--text-color-default});
+
+    cursor: pointer;
+
+    transition: all .3s ease-in-out;
+}
+
+button.active {
+    color: $light-color;
+    background: $primary-color;
+}

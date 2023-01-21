@@ -1,0 +1,37 @@
+@import '../../styles/variables.scss';
+
+
+.this__day__info {
+    box-sizing: border-box;
+    max-width: 750px;
+    width: 100%;
+
+    padding: 42px 32px;
+
+    border-radius: 20px;
+
+    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+
+    position: relative;
+    z-index: -1;
+
+    background: var(#{--components-background-default});
+
+    transition: background .3s ease-in-out;
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        position: relative;
+        z-index: 10;
+    }
+}
+
+.this__day__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -5;
+    border-radius: 0 20px 0 0;
+}
