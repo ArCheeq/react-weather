@@ -5,17 +5,24 @@ import ThisDayInfo from '../../components/thisDayInfo/ThisDayInfo';
 import Forecast from '../../components/forecast/Forecast';
 
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchCurrentWeather } from '../../store/slices/currentWeatherSlice/currentWeatherSlice';
+import { fetchCitiesList } from '../../store/slices/currentCitySlice/currentCitySlice';
 
 const Home = () => {
 
+    const currentCity = useSelector(state => state.currentCity.currentCity);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchCurrentWeather());
+        dispatch(fetchCurrentWeather(currentCity));
+        dispatch(fetchCitiesList());
     }, [])
+
+    useEffect(() => {
+        dispatch(fetchCurrentWeather(currentCity));
+    }, [currentCity])
 
     return (
         <div>

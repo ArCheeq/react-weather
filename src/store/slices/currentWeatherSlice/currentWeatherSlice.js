@@ -3,10 +3,10 @@ import { useHttp } from "../../../hooks/useHttp";
 
 const initialState = {
     weather: {
-        type : {
+        weather: [{
             id: 0,
             description: ''
-        },
+        }],
         main: {
             temp: '',
             feels_like: ''
@@ -18,6 +18,10 @@ const initialState = {
         rain: {},
         snow: {},
         clouds: {},
+        sys: {
+            sunrise: 0,
+            sunset: 0
+        },
         name: ''
     },
     weatherLoadingStatus: 'idle',
@@ -27,7 +31,7 @@ const api_key = '53b553c9b28d72a2336f3dc07f81156c';
 
 export const fetchCurrentWeather = createAsyncThunk(
     'currentWeather/fetchCurrentWeather',
-    (cityName = 'kiev') => {
+    (cityName) => {
         const {request} = useHttp();
         return request(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&lang=ua&units=metric&appid=${api_key}`);
     }
@@ -37,7 +41,6 @@ const currentWeatherSlice = createSlice({
     name: 'currentWeather',
     initialState,
     reducers: {
-
     },
     extraReducers: (builder) => {
         builder

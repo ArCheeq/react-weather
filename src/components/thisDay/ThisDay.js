@@ -6,30 +6,22 @@ import currentWeatherSelector from '../../store/selectors/currentWeatherSelector
 
 import Moment from 'react-moment';
 
+import calcSvgId from '../../model/calcSvgId';
+import useDataTime from '../../hooks/useDataTime';
+
 const ThisDay = () => {
     const {weather, weatherLoadingStatus} = useSelector(currentWeatherSelector);
 
-    const time = new Date();
-    const day = time.getDay(time);
+    const {getDay, getDayTimezone} = useDataTime();
 
-    const days = {
-        0: 'Неділя',
-        1: 'Понеділок',
-        2: 'Вівторок',
-        3: 'Середа',
-        4: 'Четверг',
-        5: "П'ятниця",
-        6: 'Субота'
-    }
-
-    const dtime = new Date(1673874026)
-
+    const day = getDay();
+    const dayTimezone = getDayTimezone(weather.sys.sunrise, weather.sys.sunset);
 
     return (
         <div className={s.this__day}>
             <div className={s.top__block}>
                 <div className={s.temperature}>{`${weather.temp}°`}</div>
-                <div className={s.day}>{days[day]}</div>
+                <div className={s.day}>{day}</div>
             </div>
             <div className={s.bot__block}>
                 <div className={s.time}>
@@ -40,7 +32,7 @@ const ThisDay = () => {
                 </div>
             </div>
 
-            <GlobalSvgSelector className={s.weather} id="clear_sky_moon"/>
+            <GlobalSvgSelector className={s.weather} id={calcSvgId(weather.type.id, dayTimezone)}/>
         </div>
     )
 }
