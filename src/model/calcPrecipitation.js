@@ -1,12 +1,12 @@
 const calcPrecipitation = (weather) => {
     if (weather.hasOwnProperty('snow')) {
-        return `Сніг - за останній час ${weather.snow['1h']} мм опадів`;
+        return `Snow - ${weather.snow['1h']} mm of precipitation recently`;
     } else if (weather.hasOwnProperty('rain')) {
-        return `Дощ - за останній час ${weather.rain['1h']} мм опадів`;
+        return `Rain - ${weather.rain['1h']} mm of precipitation recently`;
     } else if (weather.hasOwnProperty('rain') && weather.hasOwnProperty('snow')) {
-        return `Дощ зі снігом - за останній час ${weather.snow['1h'] + weather.rain['1h']} мм опадів`;
+        return `Rain with Snow - ${weather.snow['1h'] + weather.rain['1h']} mm of precipitation recently`;
     } else {
-        return 'Без опадів';
+        return 'No precipitation';
     }
 }
 

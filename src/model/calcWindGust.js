@@ -1,21 +1,21 @@
 
 const calcWindGust = (speed) => {
     if (0 <= speed && speed <= 0.2) {
-        return 'штиль';
+        return 'calm';
     } else if (0.3 <= speed && speed <= 3.3) {
-        return 'легкий вітерець';
+        return 'breeze';
     } else if (3.4 <= speed && speed <= 7.9) {
-        return 'помірний вітер';
+        return 'moderate wind';
     } else if (8 <= speed && speed <= 13.9) {
-        return 'сильний вітер';
+        return 'strong wind';
     } else if (14 <= speed && speed <= 20.7) {
-        return 'дуже сильний вітер';
+        return 'very strong wind';
     } else if (20.8 <= speed && speed <= 24.4) {
-        return 'шторм';
+        return 'storm';
     } else if (24.5 <= speed && speed <= 32.6) {
-        return 'дуже сильний шторм';
+        return 'very strong storm';
     } else if (speed => 32.7) {
-        return 'ураган !';
+        return 'hurricane !';
     } else {
         return '';
     }

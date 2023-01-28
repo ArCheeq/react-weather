@@ -13,7 +13,7 @@ body {
     transition: background .3s ease-in-out;
 }
 
-.button {
+.tab {
     font-size: 18px;
     padding: 7px 20px;
 
@@ -29,7 +29,22 @@ body {
     transition: all .3s ease-in-out;
 }
 
-button.active {
+.tab.active {
     color: $light-color;
     background: $primary-color;
+}
+
+.spinner_small {
+    svg {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+.spinner_big {
+    padding: 114px 0;
+    svg {
+        width: 80px;
+        height: 80px;
+    }
 }

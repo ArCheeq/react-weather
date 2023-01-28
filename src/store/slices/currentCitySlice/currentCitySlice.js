@@ -4,7 +4,9 @@ import { useHttp } from "../../../hooks/useHttp";
 const initialState = {
     cities: [],
     citiesLoadingStatus: 'idle',
-    currentCity: 'Kiev'
+    currentCity: 'Kiev',
+    lat: "48.0089",
+    lng: "37.8042"
 }
 
 export const fetchCitiesList = createAsyncThunk(
@@ -20,7 +22,9 @@ const currentCitySlice = createSlice({
     initialState,
     reducers: {
         changeCurrentCity: (state, action) => {
-            state.currentCity = action.payload;
+            state.currentCity = action.payload.value;
+            state.lat = action.payload.lat;
+            state.lng = action.payload.lng;
         }
     },
     extraReducers: (builder) => {
